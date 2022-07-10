@@ -2,7 +2,7 @@
 
 This API allows you to resize images by width and hight
 
-endpoint: http://localhost:3000/images/resize?filename=(filename)&width=(new width)&hight=(new hight)
+endpoint: localhost:3000/images/resize?filename=(filename)&width=(new width)&hight=(new hight)
 
 ---
 
@@ -12,30 +12,30 @@ endpoint: http://localhost:3000/images/resize?filename=(filename)&width=(new wid
 
     $ npm install
 
-### to run the project on development server
+### run the project on development server
 
     $ npm run start
 
-### to build the project
+### build the project
 
     $ npm run build
 
-### to run the server after building the project
+### run the server after building the project
 
     $ node dist/routes/index
 
-### to build and test the project
+### build and test the project
 
     $npm run test
 
-### to test without rebuilding the project
+### test without rebuilding the project
 
     $npm run jasmine
 
-### to run eslint
+### run eslint
 
     $npm run lint
 
-### to run prettier
+### run prettier
 
     $npm run prettier
