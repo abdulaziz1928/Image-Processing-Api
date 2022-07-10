@@ -41,8 +41,4 @@ describe('testing image resize endpoint', async () => {
 
     expect(res.statusCode).toEqual(400);
   });
-
-  it('expect 5 to equal 5', () => {
-    expect(5).toEqual(5);
-  });
 });
