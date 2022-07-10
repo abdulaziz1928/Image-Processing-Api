@@ -20,7 +20,10 @@ const validateImage = (
 
 //this endpoint resizes an image by taking 3 validated parameters (image name,new width,new hight)
 router.get('/resize', validateImage, async (req, res) => {
-  const imageResized = await imageService.resizeImage(req);
+  const width = Number(req.query.width);
+  const hight = Number(req.query.hight);
+  const filename = req.query.filename as string;
+  const imageResized = await imageService.resizeImage(width, hight, filename);
   res.status(200).contentType('image/jpg').send(imageResized);
 });
 

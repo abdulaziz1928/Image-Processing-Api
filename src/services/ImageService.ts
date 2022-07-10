@@ -3,7 +3,7 @@ import express from 'express';
 import path from 'path';
 import sharp from 'sharp';
 
-const validateImage = (req: express.Request) => {
+const validateImage = (req: express.Request): void => {
   const hight = Number(req.query.hight);
   const width = Number(req.query.width);
   const filename = req.query.filename as string;
@@ -23,10 +23,11 @@ const validateImage = (req: express.Request) => {
   }
 };
 
-const resizeImage = async (req: express.Request) => {
-  const width = Number(req.query.width);
-  const hight = Number(req.query.hight);
-  const filename = req.query.filename as string;
+const resizeImage = async (
+  width: number,
+  hight: number,
+  filename: string
+): Promise<Buffer> => {
   const imgPath = path.resolve(__dirname, `../../images/full/${filename}.jpg`);
   const resizedImgPath = path.resolve(
     __dirname,

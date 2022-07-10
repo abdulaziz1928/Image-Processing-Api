@@ -1,5 +1,8 @@
+import fs from 'fs';
+import path from 'path';
 import request from 'supertest';
 import app from '../../routes/index';
+import imageService from '../../services/ImageService';
 
 describe('testing image resize endpoint', async () => {
   it('GET /images/resize should return a status code 200 (success) if image exists', async () => {
@@ -40,5 +43,24 @@ describe('testing image resize endpoint', async () => {
     );
 
     expect(res.statusCode).toEqual(400);
+  });
+});
+
+describe('image proccessing', async () => {
+  it('resizeImage function should create a new resized image', async () => {
+    const width = 100;
+    const hight = 100;
+    const filename = 'fjord';
+    const resizedImgPath = path.resolve(
+      __dirname,
+      `../../../images/resized/${filename}_${width}_${hight}.jpg`
+    );
+
+    //if the resized image already exists, it will get deleted to test that the resizeImage function generates new resized images
+    if (fs.existsSync(resizedImgPath)) {
+      fs.unlinkSync(resizedImgPath);
+    }
+    await imageService.resizeImage(width, hight, filename);
+    expect(fs.existsSync(resizedImgPath)).toBeTrue();
   });
 });

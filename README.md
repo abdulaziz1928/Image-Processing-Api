@@ -2,7 +2,9 @@
 
 This API allows you to resize images by width and hight
 
-endpoint: http://localhost:3000/images/resize?filename=(filename)&width=(new width)&hight=(new hight)
+resize endpoint: localhost:3000/images/resize?filename=(filename)&width=(new width)&hight=(new hight)
+
+try this working endpoint: http://localhost:3000/images/resize?filename=encenadaport&width=200&hight=200
 
 ---
 
